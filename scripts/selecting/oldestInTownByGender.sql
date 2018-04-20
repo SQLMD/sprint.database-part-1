@@ -1,1 +1,1 @@
--- Your SQL here
+SELECT * FROM (SELECT first_name,date_of_birth,town_of_origin,gender,RANK() OVER (PARTITION BY town_of_origin, gender ORDER BY date_of_birth) rank FROM students) rank_students WHERE rank = 1;
